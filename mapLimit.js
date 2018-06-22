@@ -32,7 +32,7 @@ function mapLimit(arr, fn, limit = 1) {
 
             //如果当前并发数小于限制，则再发一个请求
             if (concurrency < limit) {
-                sendOne(now);
+                sendOne();
             }
 
             //正式发送请求
@@ -51,7 +51,7 @@ function mapLimit(arr, fn, limit = 1) {
                     resolve(resArr);
                 }
                 if (concurrency < limit) {
-                    sendOne(now);
+                    sendOne();
                 }
             });
         }
